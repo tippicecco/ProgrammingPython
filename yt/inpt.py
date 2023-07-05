@@ -1,22 +1,41 @@
 persona = {
-  "nome" : "luca" ,
-  "cog" : "mora"
+  "nome": "luca",
+  "cog": "mora"
 }
-operazione = ("add", "mod", "del")
-def start():
-  operazione = input("cabbo voi fa babbo: ")
-  if operazione == operazione[0]:
-    x = input ("agg elem: chiave , valore ")
-    aggiungi(x.split(","))
-  elif operazione == operazione[1]:
-    pass
-  elif operazione == operazione[2]:
-    pass
+operazione = ("add", "mod", "del", "exit")
 
-def aggiungi(*param):
-  chiave = param[0]
-  valore = param[1]
+def start():
+  while True:
+    operazione = input("Che operazione vuoi fare? (add, mod, del, exit): ")
+    
+    if operazione == "add":
+      x = input("Aggiungi elemento: chiave, valore ")
+      aggiungi(*x.split(","))
+    elif operazione == "mod":
+      x = input("Seleziona la chiave da modificare: ")
+      modifica(x)
+    elif operazione == "del":
+      x = input("Seleziona la chiave da eliminare: ")
+      elimina(x)
+    elif operazione == "exit":
+      break
+    else:
+      print("Operazione non valida. Riprova.")
+
+def aggiungi(chiave, valore):
   persona[chiave] = valore
   print(persona)
+
+def modifica(chiave):
+  valore = input("Immettere il nuovo valore: ")
+  persona[chiave] = valore
+  print(persona)
+
+def elimina(chiave):
+  if chiave in persona:
+    del persona[chiave]
+    print(f"Elemento con chiave '{chiave}' eliminato.")
+  else:
+    print(f"La chiave '{chiave}' non esiste.")
 
 start()

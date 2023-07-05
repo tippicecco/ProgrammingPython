@@ -2,7 +2,7 @@ class ListaConcatenata:
   class Nodo:  #creo una struct come classe
     val = None
     prossimo = None
-  def __init__(self):  #creo puntatore è listadielementt, tramite COSTRUTTORE
+  def __init__(self):  #creo puntatore è lista, tramite COSTRUTTORE
     self.testa = None #puntatore alla testa
 
   def aggiungi(self,n_val):
@@ -19,6 +19,27 @@ class ListaConcatenata:
       qnodo.val = n_val
       elemento.prossimo = qnodo
 
+  def inverti(self):
+    
+    prec = self.testa
+    current = self.testa
+    current = current.prossimo
+    self.testa = self.testa.prossimo
+    prec.prossimo = None
+    while(self.testa != None):
+      self.testa = self.testa.prossimo
+      current.prossimo = prec
+      prec=current
+      current = self.testa
+      
+    self.testa = prec
+  
+      
+      
+        
+      
+    
+
   def __iter__(self):
     self.corrente = self.testa
     return self
@@ -31,16 +52,21 @@ class ListaConcatenata:
 
 
 lista_c = ListaConcatenata()
-lista_c.aggiungi(5)
-lista_c.aggiungi(1)
-lista_c.aggiungi(3)
+n = int(input('aggiungi numero a lista: '))
+while(n != -1):
+  lista_c.aggiungi(n)
+  n = int(input('aggiungi numero a lista: '))
 current = lista_c.testa
-while current is not None:
-  print(current.val)
+while current.prossimo is not None:
+  #print(current.val)
   current = current.prossimo
+#print(current.val)
 
 [print(el) for el in lista_c]
-print(1/16)
+lista_c.inverti()
+print("LISTA INVERTITA")
+[print(el) for el in lista_c]
+#print(1/16)
 
       
   

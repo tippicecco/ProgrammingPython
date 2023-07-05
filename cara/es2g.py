@@ -38,6 +38,6 @@ integrale3 = funzione3.calcola_integrale(-2,2,500)
 print("Terzo integrale: ",integrale3)
 
 print("Convergenza del secondo integrale aumentando i rettangoli:")
-integrals = [funzione2.calcola_integrale(-math.pi/2,math.pi,x) for x in range(10,10000,100)]
+integrals = [funzione2.calcola_integrale(-math.pi/2,math.pi,x) for x in range(10,1000,100)]
 for i in integrals:
   print(i)

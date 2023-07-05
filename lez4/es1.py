@@ -1,7 +1,7 @@
 class CSVFile():
+  def __init__(self, file_name):
+      self.name = file_name
   
-  def __init__(self, shampoo):
-      self.name = shampoo.readline()
   def __str__(self):
     return '{}'.format(self.name)
   def get_data(self,shampoo):

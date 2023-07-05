@@ -36,6 +36,15 @@ class Universita:
     if (self.index == len(self.lista_studenti)):
       raise StopIteration
     return self.lista_studenti[self.index]
+print('-------')
+a = MyNumbers()
+it = iter(a)
+[print(i) for i in a]
+ino = 0
+while(ino < 4  ):
+  print(next(it))
+  ino = ino + 1
+print('-------')
 
 myS = Series(1,10)
 [print(s) for s in myS]
