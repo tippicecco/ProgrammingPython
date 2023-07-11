@@ -202,13 +202,13 @@ def compute_avg_monthly_difference(time_series, first_year, last_year):
     first_year = int(first_year)
   except Exception as e:
     print('Errore nella conversione a intero di first_year ({}),parametro non valido : {}'.format(first_year,e))
-    raise
+    return None
 
   try:
     last_year = int(last_year)
   except Exception as e:
     print('Errore nella conversione a intero di last_year ({}),parametro non valido : {}'.format(last_year,e))
-    raise
+    return None
 
   #Se first_year è maggiore di last_year alzo l'eccezione ExamException
   if first_year >= last_year:
